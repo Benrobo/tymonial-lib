@@ -23,6 +23,7 @@
     --red2:rgb(255, 0, 0, .4);
 
     --poppin: Poppin;
+    --box-width: 400px;
 }
 
 /* TYMONIAL STYLING BEGIN */
@@ -82,7 +83,8 @@
 }
 
 #tymonial-cont #tymonial-slider .tymonial-box{
-    width: 400px;
+    width: var(--box-width);
+    background: blue;
     height: auto;
     max-height: 250px;
     border-radius: 12px;
@@ -119,7 +121,7 @@
     position: absolute;
     top: -20px;
     left: 20px;
-    padding: 10px;
+    padding: 0px;
     border-radius: 50%;
     background: var(--bg3);
 }
@@ -127,8 +129,14 @@
 /* Bottom */
 #tymonial-cont #tymonial-slider .tymonial-box .bottom{
     display: flex;
-    align-items: center;
+    align-items: start;
     justify-content: space-between;
+    width: var(--box-width);
+    position: absolute;
+    bottom: 20px;
+    right: 0px;
+    padding: 12px;
+    margin: 0px auto;
 }
 
 #tymonial-cont #tymonial-slider .tymonial-box .bottom .info{
@@ -152,7 +160,7 @@
 
 #tymonial-cont #tymonial-slider .tymonial-box .bottom .rating-icon{
     color: #05ff82;
-    width: 20px;
+    width: 15px;
     margin: 0px 3px 0px 3px;
 }
 
@@ -181,13 +189,6 @@
     color: var(--white2);
 }
 
-
-
-
-.icons{
+#tymonial-cont #tymonial-control .tymonial-btn .icons{
     width: 20px;
-}
-
-img{
-    width: 50px;
 }
