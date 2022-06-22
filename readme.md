@@ -58,6 +58,8 @@ Tymonial requires that yiou provide a `proper` and `valid` parameters when initi
 - `user_id` : A `UUID` which was generated when you successfully registered. This can be found within your tymonial `Settings` page.
 - `template_id` : This contain your template ID which looks like `temp_xxxxxx` for every template created.
 
+> If you dont have an account, [Create One Here](https://)
+
 The result should look like the picture below if done properly.
 
 ![tymonial.png](https://raw.githubusercontent.com/Benrobo/tymonial-lib/main/tymonial.PNG)
