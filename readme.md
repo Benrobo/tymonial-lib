@@ -60,4 +60,4 @@ Tymonial requires that yiou provide a `proper` and `valid` parameters when initi
 
 The result should look like the picture below if done properly.
 
-![explanation.png](https://raw.githubusercontent.com/Benrobo/tymonial-lib/main/tymonial.PNG)
+![tymonial.png](https://raw.githubusercontent.com/Benrobo/tymonial-lib/main/tymonial.PNG)
