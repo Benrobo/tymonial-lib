@@ -20,10 +20,10 @@ Easily collect feedbacks from your `clients`, `Friends` & `Families` and display
 
 ```html
     <!-- Tymonial CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tymonial/assets/css/tymonial.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tymonial/lib/css/tymonial.css">
 
     <!-- Tymonial Javascript -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tymonial@1.0.0/tymonial.js">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tymonial/lib/tymonial.js">
 ```
 
 - Initialize Tymonial
