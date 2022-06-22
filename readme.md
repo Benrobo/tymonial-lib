@@ -18,6 +18,8 @@ Easily collect feedbacks from your `clients`, `Friends` & `Families` and display
 
 - Simply copy the `javascript` and `css` tags below
 
+## Javascript ( Vanilla )
+
 ```html
     <!-- Tymonial CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tymonial/lib/css/tymonial.css">
@@ -25,6 +27,10 @@ Easily collect feedbacks from your `clients`, `Friends` & `Families` and display
     <!-- Tymonial Javascript -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tymonial/lib/tymonial.js">
 ```
+
+## Javascript ( React )
+
+> COMING SOON!!!!
 
 - Initialize Tymonial
 
