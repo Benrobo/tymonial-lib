@@ -4,7 +4,6 @@
     src: url("../fonts/Poppins.ttf");
 }
 
-
 :root{
     --dark1:#0c0c0c8c;
     --bg1: #202022;
@@ -23,7 +22,12 @@
     --red2:rgb(255, 0, 0, .4);
 
     --poppin: Poppin;
-    --box-width: 400px;
+    --box-width: 350px;
+}
+
+body{
+    margin: 0px;
+    padding: 0px;
 }
 
 /* TYMONIAL STYLING BEGIN */
@@ -34,8 +38,8 @@
     position: relative;
     top: 0px;
     left: 0px;
-    background: var(--bg1);
     font-family: Poppin;
+    padding: 12px;
 }
 
 /* Head */
@@ -69,7 +73,7 @@
 
 #tymonial-cont #tymonial-slider{
     width: 100%;
-    height: 350px;
+    height: auto;
     display: grid;
     grid-auto-flow: column;
     overflow-x: scroll;
@@ -84,7 +88,6 @@
 
 #tymonial-cont #tymonial-slider .tymonial-box{
     width: var(--box-width);
-    background: blue;
     height: auto;
     max-height: 250px;
     border-radius: 12px;
@@ -93,11 +96,13 @@
     position: relative;
     transform: scale(.90);
     margin: 15px;
+    box-shadow: 0px 0px 20px #ccc;
 }
+
 
 #tymonial-cont #tymonial-slider .tymonial-box .top{
     width: 100%;
-    /* height: auto; */
+    height: auto;
     white-space: pre-wrap;
     word-wrap: break-word;
     margin: 0px;
@@ -131,11 +136,10 @@
     display: flex;
     align-items: start;
     justify-content: space-between;
-    width: var(--box-width);
+    width: 100%;
     position: absolute;
     bottom: 20px;
     right: 0px;
-    padding: 12px;
     margin: 0px auto;
 }
 
@@ -144,12 +148,14 @@
     align-items: start;
     justify-content: start;
     flex-direction: column;
+    padding: 0px 0px 0px 10px;
 }
 
 
 #tymonial-cont #tymonial-slider .tymonial-box .bottom .info .name{
     font-weight: 700;
     color: var(--white2);
+    margin: 0px 0px 0px 10px;
 }
 
 #tymonial-cont #tymonial-slider .tymonial-box .bottom .info .career{
@@ -158,10 +164,14 @@
     font-size: 14px;
 }
 
+#tymonial-cont #tymonial-slider .tymonial-box .bottom #ratings{
+    padding: 0px;
+    margin-right: 20px;
+}
+
 #tymonial-cont #tymonial-slider .tymonial-box .bottom .rating-icon{
     color: #05ff82;
     width: 15px;
-    margin: 0px 3px 0px 3px;
 }
 
 /* CONTROLS */

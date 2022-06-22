@@ -10,13 +10,8 @@
 </head>
 
 <body>
-    <h1>Tymonial Example</h1>
-    <p>Embedding tymonail template</p>
-    <br />
     <div class="example-cont">
     </div>
-    <br />
-
     <!-- <div id="tymonial-cont">
         <div id="tymonial-head">
             <p id="heading">Testimonial</p>
@@ -66,19 +61,23 @@
             </button>
         </div>
     </div> -->
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
     
     <script src="./tymonial.js" type="text/javascript"></script>
     <script>
         new Tymonial({
-            element: "div",
+            element: ".example-cont",
             user_id: "fa54431c-47e3-443e-907f-65c7e2489344",
             template_id: "temp_c112ad",
-            heading: "My Feedbacks."
+            heading: "My Feedbacks.",
+            tymonialBgColor: "#ccc",
+            subheadingColor: "#000",
+            headingColor:"#777",
+            cardBgColor: "#fff",
+            cardBodyTextColor:"#777",
+            cardUsernameTextColor: "#000",
+            cardRatingColor: "#fd336d",
+            controlsBgColor: "#fff",
+            controlsColor: "#000"
         })
         .init()
     </script>

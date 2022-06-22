@@ -11,13 +11,14 @@
 
 const $ = (el) => document.querySelector(el)
 const $all = (el) => document.querySelectorAll(el)
+const log = (el) => console.log(el);
 const tymonialSlider = $("#tymonial-slider");
 
-const ratings = (count = 5) => {
+const ratings = (count = 5, color) => {
     let stars = []
     for (let i = 0; i < count; i++) {
         let star = `
-            <svg class="h-5 w-5 icons rating-icon" viewBox="0 0 20 20" fill="currentColor">
+            <svg class="h-5 w-5 icons rating-icon" viewBox="0 0 20 20" fill="currentColor" style="color:${color}">
                 <path
                     d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
@@ -173,10 +174,17 @@ class Tymonial {
 
         if (isValidUserData) {
             const userFeedbacks = await this.#getFeedback(params);
-            if (userFeedbacks.length > 0) {
-                const montageType = Montage(params, userFeedbacks);
+            const filteredFeedbacks = userFeedbacks.length > 0 ? userFeedbacks.filter(feed => feed.published === true) : []
+
+            if (filteredFeedbacks.length > 0) {
+                const montageType = Montage(params, filteredFeedbacks);
                 this.containerElement.innerHTML = montageType;
+                return
             }
+
+            log("===============================================")
+            log("No Published Feedbacks Yet.")
+            log("===============================================")
         }
         return true;
     }
@@ -186,30 +194,103 @@ class Tymonial {
 
 // TEMPLATES
 
+
+const slideLeft = () => {
+    let slider = $("#tymonial-slider");
+    slider.scrollLeft -= 450;
+}
+
+const slideRight = () => {
+    let slider = $("#tymonial-slider");
+    slider.scrollLeft += 450;
+}
+
+function UiColors(tymonialParams) {
+    const tymonialBgColor = tymonialParams?.tymonialBgColor === undefined ? "" : tymonialParams?.tymonialBgColor;
+
+    const cardBgColor = tymonialParams?.cardBgColor === undefined ? "" : tymonialParams.cardBgColor;
+
+    const headingColor = tymonialParams?.headingColor === undefined ? "" : tymonialParams.headingColor;
+
+    const subheadingColor = tymonialParams?.subheadingColor === undefined ? "" : tymonialParams.subheadingColor;
+
+    const cardBodyTextColor = tymonialParams?.cardBodyTextColor === undefined ? "" : tymonialParams.cardBodyTextColor;
+
+    const cardUsernameTextColor = tymonialParams?.cardUsernameTextColor === undefined ? "" : tymonialParams.cardUsernameTextColor;
+
+    const cardCareerTextColor = tymonialParams?.cardCareerTextColor === undefined ? "" : tymonialParams.cardCareerTextColor;
+
+    const cardRatingColor = tymonialParams?.cardRatingColor === undefined ? "" : tymonialParams.cardRatingColor;
+
+    const controlsColor = tymonialParams?.controlsColor === undefined ? "" : tymonialParams.controlsColor;
+
+    const controlsBgColor = tymonialParams?.controlsBgColor === undefined ? "" : tymonialParams.controlsBgColor;
+
+    return {
+        tymonialBgColor,
+        cardBgColor,
+        headingColor,
+        subheadingColor,
+        cardBodyTextColor,
+        cardUsernameTextColor,
+        cardCareerTextColor,
+        cardRatingColor,
+        controlsBgColor,
+        controlsColor
+    }
+}
+
+
 const Montage = (tymonialParams, feedbacks) => {
 
     const validHeading = tymonialParams?.heading === "" || tymonialParams?.heading === undefined ? false : true;
+
     const validSubHeading = tymonialParams?.sub_heading === "" || tymonialParams?.sub_heading === undefined ? false : true;
 
+    const {
+        tymonialBgColor,
+        cardBgColor,
+        headingColor,
+        subheadingColor,
+        cardBodyTextColor,
+        cardUsernameTextColor,
+        cardCareerTextColor,
+        cardRatingColor,
+        controlsBgColor,
+        controlsColor
+    } = UiColors(tymonialParams)
+
     const tymonialElements = []
+
+
     feedbacks.map((list) => {
         const box = document.createElement("div");
+        const profileImgStyle = `
+            width: 60px;
+            height: 60px;
+            background: url('${list.profileImg}');
+            background-position:center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            border-radius: 50%;
+            box-shadow: 0px 0px 20px #ccc;
+        `
         box.innerHTML = `
-            <div class="tymonial-box">
+            <div class="tymonial-box" style="background: ${cardBgColor};">
             <div class="top">
-                <img src="${list.profileImg}" ${list.profileImg === "" ? "hidden" : ""} class="tymonial-userImage" />
-                <p class="body">${list.message}</p>
+                <div class="tymonial-userImage" style="${profileImgStyle}"></div>
+                <p class="body" style="color: ${cardBodyTextColor};">${list.message}</p>
             </div>
             <br>
             <div class="bottom">
                 <div class="info">
-                    <span class="name">${list.name}</span>
-                    <span class="career">
+                    <span class="name" style="color: ${cardUsernameTextColor};">${list.name}</span>
+                    <span class="career" style="color: ${cardCareerTextColor};">
                         ${list.userCareer}
                     </span>
                 </div>
-                <span id="ratings">
-                    ${ratings(parseInt(list.ratings))}
+                <span id="ratings" style="color: ${cardRatingColor};">
+                    ${ratings(parseInt(list.ratings), cardRatingColor)}
                 </span>
             </div>
             </div>
@@ -217,15 +298,17 @@ const Montage = (tymonialParams, feedbacks) => {
         tymonialElements.push(box)
     })
 
+
     return `
 
-    <div id="tymonial-cont">
+    <div id="tymonial-cont" style="background: ${tymonialBgColor};">
+    <br/>
     <div id="tymonial-head">
-        <p id="heading">
+        <p id="heading" style="color:${headingColor};">
             ${validHeading ? tymonialParams?.heading : "Testimonial"}
         </p>
         <br>
-        <p id="sub-heading">
+        <p id="sub-heading" style="color:${subheadingColor};">
             ${validSubHeading ? tymonialParams?.sub_heading : "What People Think About Us."}    
         </p>
     </div>
@@ -236,14 +319,14 @@ const Montage = (tymonialParams, feedbacks) => {
     </div>
     <br>
     <div id="tymonial-control">
-        <button id="prev" class="tymonial-btn">
+        <button id="prev" class="tymonial-btn" onclick="slideLeft()" style="color:${controlsColor}; background: ${controlsBgColor};">
             <svg class="h-5 w-5 icons arrow-icon" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd"
                     d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
                     clip-rule="evenodd" />
             </svg>
         </button>
-        <button id="next" class="tymonial-btn">
+        <button id="next" class="tymonial-btn" onclick="slideRight()" style="color:${controlsColor}; background: ${controlsBgColor};">
             <svg class="h-5 w-5 icons arrow-icon" viewBox="0 0 20 20" fill="currentColor">
                 <path fill-rule="evenodd"
                     d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
