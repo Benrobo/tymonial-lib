@@ -52,4 +52,12 @@ Initialize tymonial `Object` within a new `<script>` tag before the closing `</b
 ### Tymonial Params.
 Tymonial requires that yiou provide a `proper` and `valid` parameters when initializing it. Below shows and explains what each paramenters does.
 
+![explanation.png](https://raw.githubusercontent.com/Benrobo/tymonial-lib/main/tymonial-exp.PNG)
+
+- `element` : A valid `HTML` elements.
+- `user_id` : A `UUID` which was generated when you successfully registered. This can be found within your tymonial `Settings` page.
+- `template_id` : This contain your template ID which looks like `temp_xxxxxx` for every template created.
+
 The result should look like the picture below if done properly.
+
+![explanation.png](https://raw.githubusercontent.com/Benrobo/tymonial-lib/main/tymonial.PNG)
