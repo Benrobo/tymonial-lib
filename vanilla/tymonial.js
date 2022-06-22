@@ -7,8 +7,6 @@
 // Github: https://github.com/benrobo
 // Main App: 
 
-// import { Montage } from "./templates/montage.js";
-
 const $ = (el) => document.querySelector(el)
 const $all = (el) => document.querySelectorAll(el)
 const log = (el) => console.log(el);
