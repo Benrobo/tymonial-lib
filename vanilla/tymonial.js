@@ -5,7 +5,7 @@
 
 // Creator: Benaiah Alumona 
 // Github: https://github.com/benrobo
-// Main App: 
+// Main App: https://github.com/Benrobo/tymonial-lib
 
 const $ = (el) => document.querySelector(el)
 const $all = (el) => document.querySelectorAll(el)
