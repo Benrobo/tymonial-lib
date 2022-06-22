@@ -2,7 +2,8 @@
   "name": "tymonial",
   "version": "1.5.0",
   "description": "A intuitive UI library which ease the process of collecting and viewing users feedbacks within yourt web applications.",
-  "main": "/lib/tymonial.js",
+  "main": "lib/tymonial.js",
+  "module": "lib/tymonial.js",
   "repository": {
     "url": "https://github.com/Benrobo/tymonial-lib"
   },
