@@ -24,10 +24,10 @@ Easily collect feedbacks from your `clients`, `Friends` & `Families` and display
 
 ```html
     <!-- Tymonial CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tymonial/lib/css/tymonial.css">
+    <link rel="stylesheet" href="https://unpkg.com/tymonial/lib/css/tymonial.css" />
 
     <!-- Tymonial Javascript -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/tymonial/lib/tymonial.js">
+    <script type="text/javascript" src="https://unpkg.com/tymonial@^1.8.0/lib/tymonial.js"></script>
 ```
 
 ## Javascript ( React )
