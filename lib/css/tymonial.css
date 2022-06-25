@@ -30,6 +30,35 @@ body{
     padding: 0px;
 }
 
+.tymonial-loader{
+    width: 50px;
+    height: 50px;
+    transform: scale(.50);
+    border-radius: 50%;
+    border-top: 5px solid #202022;
+    border-bottom: 5px solid #202022;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    animation: spin .5s infinite;
+    transition: .2s all ease;
+}
+
+@keyframes spin {
+    0%{
+        transform: rotate(360deg) scale(.70);
+    }
+    100%{
+        transform: rotate(0deg) scale(.70);
+    }
+}
+
+.tymonial-container-element{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 /* TYMONIAL STYLING BEGIN */
 
 #tymonial-cont{
