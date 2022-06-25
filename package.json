@@ -1,6 +1,6 @@
 {
   "name": "tymonial",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "A intuitive UI library which ease the process of collecting and viewing users feedbacks within yourt web applications.",
   "main": "lib/tymonial.js",
   "module": "lib/tymonial.js",
