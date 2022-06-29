@@ -27,7 +27,7 @@ Easily collect feedbacks from your `clients`, `Friends` & `Families` and display
     <link rel="stylesheet" href="https://unpkg.com/tymonial/lib/css/tymonial.css" />
 
     <!-- Tymonial Javascript -->
-    <script type="text/javascript" src="https://unpkg.com/tymonial@^1.8.0/lib/tymonial.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/tymonial/lib/tymonial.js"></script>
 ```
 
 ## Javascript ( React )
