@@ -22,7 +22,7 @@
     --red2:rgb(255, 0, 0, .4);
 
     --poppin: Poppin;
-    --box-width: 350px;
+    --box-width: 400px;
 }
 
 body{
@@ -116,7 +116,7 @@ body{
 }
 
 #tymonial-cont #tymonial-slider .tymonial-box{
-    width: var(--box-width);
+    width: var(--box-width) !important;
     height: auto;
     max-height: 250px;
     border-radius: 12px;
@@ -125,7 +125,6 @@ body{
     position: relative;
     transform: scale(.90);
     margin: 15px;
-    box-shadow: 0px 0px 20px #ccc;
 }
 
 
@@ -142,12 +141,22 @@ body{
     margin-top: 25px;
 } 
 
+#tymonial-cont #tymonial-slider .tymonial-box .tymonial-quote{
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    width: 60px;
+    opacity: .2;
+    transform: scale(.60);
+}
+
 #tymonial-cont #tymonial-slider .tymonial-box .top .body{
     font-size: 15px;
     font-weight: 500;
     white-space: pre-wrap;
     word-wrap: break-word;
     color: var(--white1);
+    font-weight: 600;
 }
 
 #tymonial-cont #tymonial-slider .tymonial-box .top .tymonial-userImage{
@@ -174,23 +183,27 @@ body{
 
 #tymonial-cont #tymonial-slider .tymonial-box .bottom .info{
     display: flex;
-    align-items: start;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
     flex-direction: column;
     padding: 0px 0px 0px 10px;
+    margin: 0px 0px 0px 10px;
 }
 
 
 #tymonial-cont #tymonial-slider .tymonial-box .bottom .info .name{
     font-weight: 700;
     color: var(--white2);
-    margin: 0px 0px 0px 10px;
+    margin: 0px;
+    text-transform: capitalize;
 }
 
 #tymonial-cont #tymonial-slider .tymonial-box .bottom .info .career{
     font-weight: 300;
     color: var(--white3);
     font-size: 14px;
+    margin: 0px;
+    text-transform: capitalize;
 }
 
 #tymonial-cont #tymonial-slider .tymonial-box .bottom #ratings{
